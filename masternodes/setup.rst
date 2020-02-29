@@ -20,7 +20,7 @@ available if you prefer to delegate day-to-day operation of your
 masternode to a professional operator. When using these hosting
 services, you retain full control of the 1000 DASH collateral and pay an
 agreed percentage of your reward to the operator. It is also possible to
-delegate your voting keys to a representative, see the 
+delegate your voting keys to a representative, see the
 :ref:`governance documentation <delegating-votes>` for more
 information.
 
@@ -33,7 +33,7 @@ the first time. If you are updating a masternode, see  :ref:`here
 <masternode-update>` instead. You will need:
 
 - 1000 Dash
-- A wallet to store your Dash, preferably a hardware wallet, although 
+- A wallet to store your Dash, preferably a hardware wallet, although
   Dash Core wallet is also supported
 - A Linux server, preferably a Virtual Private Server (VPS)
 
@@ -52,7 +52,7 @@ appears below:
 This documentation describes the commands as if they were
 entered in the Dash Core GUI by opening the console from **Tools > Debug
 console**, but the same result can be achieved on a masternode by
-entering the same commands and adding the prefix 
+entering the same commands and adding the prefix
 ``~/.dashcore/dash-cli`` to each command.
 
 
@@ -180,7 +180,7 @@ replacing ``<username>`` with a username of your choice::
 
 You will be prompted for a password. Enter and confirm using a new
 password (different to your root password) and store it in a safe place.
-You will also see prompts for user information, but this can be left
+You will also see prompts for user information, but these can be left
 blank. Once the user has been created, we will add them to the sudo
 group so they can perform commands as root::
 
@@ -271,8 +271,8 @@ PuTTY will disconnect when the server reboots.
 
 While this setup includes basic steps to protect your server against
 attacks, much more can be done. In particular, `authenticating with a public key <https://help.ubuntu.com/community/SSH/OpenSSH/Keys>`_
-instead of a username/password combination and `enabling automatic security updates <https://help.ubuntu.com/community/AutomaticSecurityUpdates>`_ 
-is advisable. More tips are available `here <https://www.cyberciti.biz/tips/linux-security.html>`__. 
+instead of a username/password combination and `enabling automatic security updates <https://help.ubuntu.com/community/AutomaticSecurityUpdates>`_
+is advisable. More tips are available `here <https://www.cyberciti.biz/tips/linux-security.html>`__.
 However, since the masternode does not actually store the keys to any
 Dash, these steps are considered beyond the scope of this guide.
 
@@ -332,7 +332,8 @@ and run the file. The following window appears.
 
    Dash Masternode Tool startup screen
 
-Click the third button from the left **Check Dash Network Connection**
+Make sure all your Trezor wallets are closed and your Trezor is disconnected,
+then Click the third button from the left **Check Dash Network Connection**
 in the top left corner of the main window to verify that the connection
 is working. Then connect your Trezor device and click the next button
 **Test Hardware Wallet Connection** to verify the Trezor connection is
@@ -356,14 +357,14 @@ steps as shown in this screenshot:
    Dash Masternode Tool configuration steps
 
 #. Click the **New** button.
-#. Enter a name for your masternode. The host name you specified 
+#. Enter a name for your masternode. The host name you specified
    for your VPS above is a good choice.
 #. Enter the IP address of your masternode. This was given to you
-   by the VPS provider when you set up the server. Then enter the TCP 
+   by the VPS provider when you set up the server. Then enter the TCP
    port number. This should be 9999.
-#. Click **Locate collateral** to view unused collateral funding 
-   transactions available on the connected hardware wallet. Select the 
-   address to which you sent 1000 Dash and click **Apply**. The 
+#. Click **Locate collateral** to view unused collateral funding
+   transactions available on the connected hardware wallet. Select the
+   address to which you sent 1000 Dash and click **Apply**. The
    **Collateral address**, **path**, **Collateral TX hash** and
    **index** fields should be filled automatically.
 
@@ -488,7 +489,7 @@ Option 2: Manual installation
 -----------------------------
 
 To manually download and install the components of your Dash masternode,
-visit the `GitHub releases page <https://github.com/dashpay/dash/releases>`_ 
+visit the `GitHub releases page <https://github.com/dashpay/dash/releases>`_
 and copy the link to the latest ``x86_64-linux-gnu`` version. Go back to
 your terminal window and enter the following command, pasting in the
 address to the latest version of Dash Core by right clicking or pressing
@@ -507,7 +508,7 @@ and comparing the output against the value for the file as shown in the
 
 You can also optionally verify the authenticity of your download as an
 official release by Dash Core Team. All releases of Dash are signed
-using GPG by Alexander Block (codablock) with the key ``63A9 6B40 6102 E091``, 
+using GPG by Alexander Block (codablock) with the key ``63A9 6B40 6102 E091``,
 `verifiable here on Keybase <https://keybase.io/codablock>`_. Import the
 key, download the ASC file for the current release of Dash and verify
 the signature as follows::
@@ -651,7 +652,7 @@ private keys required for a DIP003 deterministic masternode:
 
 Then click **Register masternode**. Optionally specify a different
 **Payout address** and/or **Operator reward**, then click **Continue**.
-Select **Remote Dash RPC Node (automatic method)**. (See `here <https://github.com/Bertrand256/dash-masternode-tool/blob/master/doc/config-connection-direct.md>`__ 
+Select **Remote Dash RPC Node (automatic method)**. (See `here <https://github.com/Bertrand256/dash-masternode-tool/blob/master/doc/config-connection-direct.md>`__
 for documentation on using your own local RPC node.) and confirm the
 following two messages:
 
@@ -689,9 +690,9 @@ to give Dash Core time to shut down::
   sleep 15
   ~/.dashcore/dashd
 
-At this point you can monitor your masternode using 
-``~/dashman/dashman status``, by entering 
-``~/.dashcore/dash-cli masternode status`` or using the **Get status** 
+At this point you can monitor your masternode using
+``~/dashman/dashman status``, by entering
+``~/.dashcore/dash-cli masternode status`` or using the **Get status**
 function in DMT. The final result should appear as follows:
 
 .. figure:: img/setup-dash-cli-start.png
@@ -724,7 +725,7 @@ This should return a string of characters similar to the following::
   }
 
 The first long string is your ``collateralHash``, while the last number
-is the ``collateralIndex``. 
+is the ``collateralIndex``.
 
 
 .. _bls-generation:
@@ -838,29 +839,29 @@ We will now prepare an unsigned ProRegTx special transaction using the
 ``protx register_prepare`` command. This command has the following
 syntax::
 
-  protx register_prepare collateralHash collateralIndex ipAndPort ownerKeyAddr 
+  protx register_prepare collateralHash collateralIndex ipAndPort ownerKeyAddr
     operatorPubKey votingKeyAddr operatorReward payoutAddress (feeSourceAddress)
 
 Open a text editor such as notepad to prepare this command. Replace each
 argument to the command as follows:
 
-- ``collateralHash``: The txid of the 1000 Dash collateral funding 
+- ``collateralHash``: The txid of the 1000 Dash collateral funding
   transaction
-- ``collateralIndex``: The output index of the 1000 Dash funding 
+- ``collateralIndex``: The output index of the 1000 Dash funding
   transaction
-- ``ipAndPort``: Masternode IP address and port, in the format 
+- ``ipAndPort``: Masternode IP address and port, in the format
   ``x.x.x.x:yyyy``
-- ``ownerKeyAddr``: The new Dash address generated above for the 
+- ``ownerKeyAddr``: The new Dash address generated above for the
   owner/voting address
-- ``operatorPubKey``: The BLS public key generated above (or provided 
+- ``operatorPubKey``: The BLS public key generated above (or provided
   by your hosting service)
-- ``votingKeyAddr``: The new Dash address generated above, or the 
+- ``votingKeyAddr``: The new Dash address generated above, or the
   address of a delegate, used for proposal voting
-- ``operatorReward``: The percentage of the block reward allocated to 
+- ``operatorReward``: The percentage of the block reward allocated to
   the operator as payment
-- ``payoutAddress``: A new or existing Dash address to receive the 
+- ``payoutAddress``: A new or existing Dash address to receive the
   owner's masternode rewards
-- ``feeSourceAddress``: An (optional) address used to fund ProTx fee. 
+- ``feeSourceAddress``: An (optional) address used to fund ProTx fee.
   ``payoutAddress`` will be used if not specified.
 
 Note that the operator is responsible for :ref:`specifying their own
@@ -871,15 +872,15 @@ address.
 
 Example (remove line breaks if copying)::
 
-  protx register_prepare 
-    16347a28f4e5edf39f4dceac60e2327931a25fdee1fb4b94b63eeacf0d5879e3 
-    1 
-    45.76.230.239:19999 
-    yfgxFhqrdDG15ZWKJAN6dQvn6dZdgBPAip 
-    99f20ed1538e28259ff80044982372519a2e6e4cdedb01c96f8f22e755b2b3124fbeebdf6de3587189cf44b3c6e7670e 
-    yfRaZN8c3Erpqj9iKnmQ9QDBeUuRhWV3Mg 
-    0 
-    yjZVt49WsQd6XSrPVAUGXtJccxviH9ZQpN 
+  protx register_prepare
+    16347a28f4e5edf39f4dceac60e2327931a25fdee1fb4b94b63eeacf0d5879e3
+    1
+    45.76.230.239:19999
+    yfgxFhqrdDG15ZWKJAN6dQvn6dZdgBPAip
+    99f20ed1538e28259ff80044982372519a2e6e4cdedb01c96f8f22e755b2b3124fbeebdf6de3587189cf44b3c6e7670e
+    yfRaZN8c3Erpqj9iKnmQ9QDBeUuRhWV3Mg
+    0
+    yjZVt49WsQd6XSrPVAUGXtJccxviH9ZQpN
     yR83WsikBaBaNusTnHZf28kAcL8oVmp1TE
 
 Output::
@@ -927,11 +928,11 @@ command takes the following syntax::
 
   protx register_submit tx sig
 
-Where: 
+Where:
 
-- ``tx``: The serialized transaction previously returned in the ``tx`` 
+- ``tx``: The serialized transaction previously returned in the ``tx``
   output field from the ``protx register_prepare`` command
-- ``sig``: The message signed with the collateral key from the 
+- ``sig``: The message signed with the collateral key from the
   ``signmessage`` command
 
 Example::
